@@ -35,13 +35,16 @@ public class ShopActivity extends AppCompatActivity {
         String descdata = getIntent().getStringExtra("descdata");
         String titledata = getIntent().getStringExtra("titledata");
         String imagedata = getIntent().getStringExtra("imagedata");
+        String pricedata = getIntent().getStringExtra("pricedata");
 
         desctext = findViewById(R.id.fullshopdesctext);
         titletext = findViewById(R.id.fullshopheadingtext);
         imageView = findViewById(R.id.fullshopimage);
+        pricetext = findViewById(R.id.shopprice);
 
         desctext.setText(descdata);
         titletext.setText(titledata);
+        pricetext.setText(pricedata);
 
         FirebaseStorage storage = FirebaseStorage.getInstance();
         // Create a reference to a file from a Google Cloud Storage URI

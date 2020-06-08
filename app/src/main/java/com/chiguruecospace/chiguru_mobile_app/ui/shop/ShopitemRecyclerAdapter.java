@@ -51,8 +51,9 @@ public class ShopitemRecyclerAdapter extends RecyclerView.Adapter<ShopitemRecycl
     public void onBindViewHolder(@NonNull ShopitemRecyclerAdapter.ViewHolder holder, int position) {
 
         final String descdata = shoplist.get(position).getDescription();
-        final String titledata = shoplist.get(position).getTitle();
+        final String namedata = shoplist.get(position).getName();
         final String imagedata = shoplist.get(position).getImagepath();
+        final int pricedata = shoplist.get(position).getPrice();
 
         holder.parentlayout.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -61,8 +62,9 @@ public class ShopitemRecyclerAdapter extends RecyclerView.Adapter<ShopitemRecycl
                 try {
                     Intent intent = new Intent(mContext, ShopActivity.class);
                     intent.putExtra("descdata", descdata);
-                    intent.putExtra("titledata", titledata);
+                    intent.putExtra("namedata", namedata);
                     intent.putExtra("imagedata", imagedata);
+                    intent.putExtra("pricedata", pricedata);
                     mContext.startActivity(intent);
                 }catch (Exception e){
 
@@ -73,8 +75,9 @@ public class ShopitemRecyclerAdapter extends RecyclerView.Adapter<ShopitemRecycl
         });
 
         holder.setDescText(descdata);
-        holder.setTitleText(titledata);
+        holder.setNameText(namedata);
         holder.setShopImage(imagedata);
+        holder.setPrice(pricedata);
 
     }
 
@@ -106,10 +109,17 @@ public class ShopitemRecyclerAdapter extends RecyclerView.Adapter<ShopitemRecycl
 
         }
 
-        public void setTitleText(String text){
+        public void setNameText(String name){
 
             heading = mView.findViewById(R.id.shopheadingtext);
-            heading.setText(text);
+            heading.setText(name);
+
+        }
+
+        public void setPrice(int price){
+
+            heading = mView.findViewById(R.id.shopcardprice);
+            heading.setText(price);
 
         }
 

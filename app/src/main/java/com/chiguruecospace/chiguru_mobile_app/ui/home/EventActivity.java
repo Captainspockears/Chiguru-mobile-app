@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.chiguruecospace.chiguru_mobile_app.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.Timestamp;
 import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -23,7 +24,6 @@ public class EventActivity extends AppCompatActivity {
 
     private TextView desctext;
     private TextView titletext;
-    private TextView datelabeltext;
     private TextView datetext;
     private ImageView imageView;
 
@@ -35,11 +35,14 @@ public class EventActivity extends AppCompatActivity {
         String descdata = getIntent().getStringExtra("descdata");
         String titledata = getIntent().getStringExtra("titledata");
         String imagedata = getIntent().getStringExtra("imagedata");
+        String datedata = getIntent().getStringExtra("datedata");
 
         desctext = findViewById(R.id.fulleventdesctext);
         titletext = findViewById(R.id.fulleventheadingtext);
         imageView = findViewById(R.id.fulleventimage);
+        datetext = findViewById(R.id.fulleventdate);
 
+        datetext.setText(datedata);
         desctext.setText(descdata);
         titletext.setText(titledata);
 

@@ -24,6 +24,7 @@ import com.chiguruecospace.chiguru_mobile_app.R;
 import com.chiguruecospace.chiguru_mobile_app.ScannedItemDisplay;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.Timestamp;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
@@ -61,6 +62,7 @@ public class EventRecyclerAdapter extends RecyclerView.Adapter<EventRecyclerAdap
         final String descdata = eventlist.get(position).getDescription();
         final String titledata = eventlist.get(position).getTitle();
         final String imagedata = eventlist.get(position).getImagepath();
+        final Timestamp datedata = eventlist.get(position).getTimestamp();
 
         holder.parentlayout.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -71,6 +73,7 @@ public class EventRecyclerAdapter extends RecyclerView.Adapter<EventRecyclerAdap
                     intent.putExtra("descdata", descdata);
                     intent.putExtra("titledata", titledata);
                     intent.putExtra("imagedata", imagedata);
+                    intent.putExtra("datedata", datedata.toString());
                     mContext.startActivity(intent);
                 }catch (Exception e){
 
@@ -83,6 +86,7 @@ public class EventRecyclerAdapter extends RecyclerView.Adapter<EventRecyclerAdap
         holder.setDescText(descdata);
         holder.setTitleText(titledata);
         holder.setEventImage(imagedata);
+        holder.setDate(datedata);
 
     }
 
@@ -111,6 +115,13 @@ public class EventRecyclerAdapter extends RecyclerView.Adapter<EventRecyclerAdap
 
             descview = mView.findViewById(R.id.eventdesctext);
             descview.setText(text);
+
+        }
+
+        public void setDate(Timestamp date){
+
+            descview = mView.findViewById(R.id.eventdesctext);
+            descview.setText(date.toString());
 
         }
 

@@ -57,4 +57,5 @@
     <string name="startnavigation">Start Navigation</string>
     <string name="mapbase">mapbox://styles/ruthuparnak/cka3qxi8n0o231inxiirhcars</string>
     <string name="changeroute">Change Route:</string>
+    <string name="createAccount">Create Account</string>
 </resources>
