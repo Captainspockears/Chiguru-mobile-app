@@ -65,6 +65,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/eventheadingtext" />
 
             <TextView
+                android:id="@+id/eventdatecard"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/eventdate"

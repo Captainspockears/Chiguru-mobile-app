@@ -55,10 +55,15 @@ public class ShopFragment extends Fragment {
 
                     if(doc.getType() == DocumentChange.Type.ADDED){
 
+                        try{
                         ShopViewModel shopitem = doc.getDocument().toObject(ShopViewModel.class);
                         shoplist.add(shopitem);
 
                         shopRecyclerAdapter.notifyDataSetChanged();
+
+                        }catch(Exception err){
+                            err.printStackTrace();
+                        }
 
                     }
                 }

@@ -62,7 +62,7 @@ public class EventRecyclerAdapter extends RecyclerView.Adapter<EventRecyclerAdap
         final String descdata = eventlist.get(position).getDescription();
         final String titledata = eventlist.get(position).getTitle();
         final String imagedata = eventlist.get(position).getImagepath();
-        final Timestamp datedata = eventlist.get(position).getTimestamp();
+        final String datedata = eventlist.get(position).getDate();
 
         holder.parentlayout.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -73,7 +73,7 @@ public class EventRecyclerAdapter extends RecyclerView.Adapter<EventRecyclerAdap
                     intent.putExtra("descdata", descdata);
                     intent.putExtra("titledata", titledata);
                     intent.putExtra("imagedata", imagedata);
-                    intent.putExtra("datedata", datedata.toString());
+                    intent.putExtra("datedata", datedata);
                     mContext.startActivity(intent);
                 }catch (Exception e){
 
@@ -98,6 +98,7 @@ public class EventRecyclerAdapter extends RecyclerView.Adapter<EventRecyclerAdap
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         private TextView descview;
+        private TextView dateview;
         private TextView heading;
         private ImageView image;
         private View mView;
@@ -118,11 +119,16 @@ public class EventRecyclerAdapter extends RecyclerView.Adapter<EventRecyclerAdap
 
         }
 
-        public void setDate(Timestamp date){
+        public void setDate(String date){
 
-            descview = mView.findViewById(R.id.eventdesctext);
-            descview.setText(date.toString());
+            try {
+                dateview = mView.findViewById(R.id.eventdatecard);
+                dateview.setText(date);
+            }catch(Exception e){
 
+                e.printStackTrace();
+
+            }
         }
 
         public void setTitleText(String text){

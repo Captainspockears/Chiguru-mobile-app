@@ -30,7 +30,7 @@
     <string name="eventheading">Heading</string>
     <string name="eventdesc">Description</string>
     <string name="eventdatelabel">"Date: "</string>
-    <string name="eventdate">11/1/19</string>
+    <string name="eventdate">No Date</string>
     <string name="username">Username</string>
     <string name="submit">Submit</string>
     <string name="shopimage">Shop Image</string>
@@ -61,4 +61,7 @@
     <string name="LOGIN">LOG IN</string>
     <string name="createAccount">CREATE ACCOUNT</string>
     <string name="EmailAddress">Email Address</string>
+    <string name="startnavigation">Start Navigation</string>
+    <string name="mapbase">mapbox://styles/ruthuparnak/cka3qxi8n0o231inxiirhcars</string>
+    <string name="changeroute">Change Route:</string>
 </resources>

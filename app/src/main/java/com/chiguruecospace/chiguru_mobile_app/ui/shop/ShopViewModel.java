@@ -3,15 +3,15 @@ package com.chiguruecospace.chiguru_mobile_app.ui.shop;
 public class ShopViewModel{
 
     private String Description;
-    private String Name;
     private String Imagepath;
-    private int Price;
+    private String Name;
+    private String Price;
 
-    public int getPrice() {
+    public String getPrice() {
         return Price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(String price) {
         Price = price;
     }
 
@@ -39,10 +39,12 @@ public class ShopViewModel{
         return Name;
     }
 
-    public ShopViewModel(){}
+    public ShopViewModel(){this.Price = "";}
 
-    public ShopViewModel(String name, String desc) {
+    public ShopViewModel(String name, String desc, String imagepath, String price) {
         this.Name = name;
         this.Description = desc;
+        this.Imagepath = imagepath;
+        this.Price = price;
     }
 }

@@ -1,19 +1,21 @@
 package com.chiguruecospace.chiguru_mobile_app.ui.home;
 
+import android.widget.Toast;
+
 import com.google.firebase.Timestamp;
 
 public class HomeViewModel{
 
+    private String Date;
     private String Description;
-    private String Title;
     private String Imagepath;
-    private Timestamp Date;
+    private String Title;
 
-    public void setTimestamp(Timestamp timestamp) {
-        this.Date = timestamp;
+    public void setDate(String date) {
+        this.Date = date;
     }
 
-    public Timestamp getTimestamp() {
+    public String getDate() {
         return Date;
     }
 
@@ -41,11 +43,14 @@ public class HomeViewModel{
         return Title;
     }
 
-    public HomeViewModel(){}
+    public HomeViewModel(){
+    }
 
-    public HomeViewModel(String title, String desc) {
+    public HomeViewModel(String title, String desc, String date, String imagepath) {
         this.Title = title;
         this.Description = desc;
+        this.Date = date;
+        this.Imagepath = imagepath;
     }
 
 }

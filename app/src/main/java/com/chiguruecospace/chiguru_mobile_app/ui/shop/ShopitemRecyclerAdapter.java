@@ -53,7 +53,7 @@ public class ShopitemRecyclerAdapter extends RecyclerView.Adapter<ShopitemRecycl
         final String descdata = shoplist.get(position).getDescription();
         final String namedata = shoplist.get(position).getName();
         final String imagedata = shoplist.get(position).getImagepath();
-        final int pricedata = shoplist.get(position).getPrice();
+        final String pricedata = shoplist.get(position).getPrice();
 
         holder.parentlayout.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -116,10 +116,10 @@ public class ShopitemRecyclerAdapter extends RecyclerView.Adapter<ShopitemRecycl
 
         }
 
-        public void setPrice(int price){
+        public void setPrice(String price){
 
             heading = mView.findViewById(R.id.shopcardprice);
-            heading.setText(price);
+            heading.setText(price.toString());
 
         }
 

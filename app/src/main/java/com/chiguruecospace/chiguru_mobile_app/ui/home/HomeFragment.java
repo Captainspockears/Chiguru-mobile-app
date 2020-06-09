@@ -2,6 +2,7 @@ package com.chiguruecospace.chiguru_mobile_app.ui.home;
 
 import android.os.Bundle;
 import android.os.RecoverySystem;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,10 +21,12 @@ import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class HomeFragment extends Fragment {
 
@@ -54,9 +57,9 @@ public class HomeFragment extends Fragment {
 
                     if(doc.getType() == DocumentChange.Type.ADDED){
 
+                        Map<String, Object> a = doc.getDocument().getData();
                         HomeViewModel event = doc.getDocument().toObject(HomeViewModel.class);
                         eventlist.add(event);
-
                         eventRecyclerAdapter.notifyDataSetChanged();
 
                     }
