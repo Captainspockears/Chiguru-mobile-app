@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.chiguruecospace.chiguru_mobile_app.R;
 import com.chiguruecospace.chiguru_mobile_app.ui.home.EventRecyclerAdapter;
 import com.chiguruecospace.chiguru_mobile_app.ui.home.HomeViewModel;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -34,6 +35,8 @@ public class ShopFragment extends Fragment {
     private FirebaseFirestore firebasefirestore;
     private ShopitemRecyclerAdapter shopRecyclerAdapter;
 
+    private FloatingActionButton cart;
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
@@ -41,6 +44,12 @@ public class ShopFragment extends Fragment {
 
         shoplist = new ArrayList<>();
         shoplistview = root.findViewById(R.id.shopitemslist);
+
+        FloatingActionButton fab = getActivity().findViewById(R.id.fab);
+        fab.setVisibility(View.INVISIBLE);
+        cart = root.findViewById(R.id.cart);
+        cart.setVisibility(View.INVISIBLE);
+        //fab.setEnabled(false);
 
         shopRecyclerAdapter = new ShopitemRecyclerAdapter(this.getActivity(), shoplist);
         shoplistview.setLayoutManager(new LinearLayoutManager(getActivity()));

@@ -20,6 +20,8 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.chiguruecospace.chiguru_mobile_app.MainActivity;
+import com.chiguruecospace.chiguru_mobile_app.Scanner;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.mapbox.android.core.permissions.PermissionsListener;
 import com.mapbox.android.core.permissions.PermissionsManager;
 import com.mapbox.api.directions.v5.models.DirectionsResponse;
@@ -95,6 +97,7 @@ public class TourFragment extends Fragment implements
 
     private Spinner spinner;
     private Button button;
+    private FloatingActionButton fab;
 
     private View root;
 
@@ -106,6 +109,10 @@ public class TourFragment extends Fragment implements
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+
+        fab = getActivity().findViewById(R.id.fab);
+        fab.setVisibility(View.VISIBLE);
+
         tourViewModel =
                 ViewModelProviders.of(this).get(TourViewModel.class);
         Mapbox.getInstance(getActivity(), "pk.eyJ1IjoicnV0aHVwYXJuYWsiLCJhIjoiY2s5aDZmanpzMHJybjNmbzk2NmY5d3dwNCJ9.HwYfWVsfitgcRlDWOJ6-0A");
@@ -157,6 +164,7 @@ public class TourFragment extends Fragment implements
                                         .build();
 // Call this method with Context from within an Activity
                                 NavigationLauncher.startNavigation(getActivity(), options);
+                                //fab.setVisibility(View.VISIBLE);
                             }
                         });
                     }
@@ -340,6 +348,8 @@ public class TourFragment extends Fragment implements
         if (source != null) {
             source.setGeoJson(Feature.fromGeometry(destinationPoint));
         }
+
+        waypoints = waypointsA;
 
         if (text.equals("Route A")){
             waypoints = waypointsA;

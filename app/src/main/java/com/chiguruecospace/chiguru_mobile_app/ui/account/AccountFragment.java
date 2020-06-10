@@ -15,6 +15,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.chiguruecospace.chiguru_mobile_app.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class AccountFragment extends Fragment {
 
@@ -25,6 +26,9 @@ public class AccountFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+
+        FloatingActionButton fab = getActivity().findViewById(R.id.fab);
+        fab.setVisibility(View.INVISIBLE);
 
         View root = inflater.inflate(R.layout.fragment_account, container, false);
 
